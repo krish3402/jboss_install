@@ -1,0 +1,5 @@
+---
+- name: Backup war files
+  command: mv {{item}}
+  with_items:
+     -  "/tmp/{{NODE1}}-{{VERSION}}.war /tmp/{{NODE1}}-{{VERSION}}.war_bkp"

@@ -1,0 +1,15 @@
+---
+- name: nodes stop all
+  shell: "{{item}}"
+  with_items:
+    - nohup sh {{JBOSS_HOME}}/bin/jboss-cli.sh --connect --controller=localhost:9991 command=:shutdown &
+    - nohup sh {{JBOSS_HOME}}/bin/jboss-cli.sh --connect --controller=localhost:10001 command=:shutdown &
+    - nohup sh {{JBOSS_HOME}}/bin/jboss-cli.sh --connect --controller=localhost:10011 command=:shutdown &
+    - nohup sh {{JBOSS_HOME}}/bin/jboss-cli.sh --connect --controller=localhost:10021 command=:shutdown &
+    - nohup sh {{JBOSS_HOME}}/bin/jboss-cli.sh --connect --controller=localhost:10031 command=:shutdown &
+    - nohup sh {{JBOSS_HOME}}/bin/jboss-cli.sh --connect --controller=localhost:10041 command=:shutdown &
+    - nohup sh {{JBOSS_HOME}}/bin/jboss-cli.sh --connect --controller=localhost:10051 command=:shutdown &
+  tags: stop
+- pause:
+    minutes: 1
+

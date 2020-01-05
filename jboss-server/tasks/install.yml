@@ -1,0 +1,15 @@
+---
+- name: Clean
+  file:
+    path: /root/jboss-eap-7.2
+    state: absent
+- pause: 
+    seconds: 30
+- name: Download JBOSS
+  git:
+    repo: https://github.com/krish3402/jboss-7.2.git
+    dest: /root/jboss-eap-7.2
+- name: Create Add-User
+  shell: "{{item}}"
+  with_items:
+    - nohup sh {{JBOSS_HOME}}/bin/add-user.sh jboss jboss --silent

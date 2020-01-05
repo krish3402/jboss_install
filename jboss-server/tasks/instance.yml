@@ -1,0 +1,13 @@
+---
+- name: Create Jboss instance
+  copy: src={{item.src}} dest={{item.dest}} remote_src=yes
+  with_items:
+    - { src: '{{JBOSS_HOME}}/standalone/', dest: '{{JBOSS_HOME}}/node1' }
+    - { src: '{{JBOSS_HOME}}/standalone/', dest: '{{JBOSS_HOME}}/node2' }
+    - { src: '{{JBOSS_HOME}}/standalone/', dest: '{{JBOSS_HOME}}/node3' }
+    - { src: '{{JBOSS_HOME}}/standalone/', dest: '{{JBOSS_HOME}}/node4' }
+    - { src: '{{JBOSS_HOME}}/standalone/', dest: '{{JBOSS_HOME}}/node5' }
+    - { src: '{{JBOSS_HOME}}/standalone/', dest: '{{JBOSS_HOME}}/node6' }
+    - { src: '{{JBOSS_HOME}}/standalone/', dest: '{{JBOSS_HOME}}/node7' }
+  loop_control:
+    pause: 1 

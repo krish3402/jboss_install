@@ -1,0 +1,15 @@
+---
+- name: Download war files
+  get_url: url={{item}} dest=/tmp/
+  with_items:
+     -  "{{NEXUS}}/{{ARTIFACTORTY}}/{{NODE1}}/{{VERSION}}/{{NODE1}}-{{VERSION}}.war"
+- name: deploy war files
+  copy: src={{item.src}} dest={{item.dest}} remote_src=yes
+  with_items:
+     - { src: '/tmp/{{NODE1}}-{{VERSION}}.war', dest: '{{JBOSS_HOME}}/node1/deployments/{{NODE1}}.war' }
+     - { src: '/tmp/{{NODE1}}-{{VERSION}}.war', dest: '{{JBOSS_HOME}}/node2/deployments/{{NODE2}}.war' }
+     - { src: '/tmp/{{NODE1}}-{{VERSION}}.war', dest: '{{JBOSS_HOME}}/node3/deployments/{{NODE3}}.war' }
+     - { src: '/tmp/{{NODE1}}-{{VERSION}}.war', dest: '{{JBOSS_HOME}}/node4/deployments/{{NODE4}}.war' }
+     - { src: '/tmp/{{NODE1}}-{{VERSION}}.war', dest: '{{JBOSS_HOME}}/node5/deployments/{{NODE5}}.war' }
+     - { src: '/tmp/{{NODE1}}-{{VERSION}}.war', dest: '{{JBOSS_HOME}}/node6/deployments/{{NODE6}}.war' }
+     - { src: '/tmp/{{NODE1}}-{{VERSION}}.war', dest: '{{JBOSS_HOME}}/node7/deployments/{{NODE7}}.war' }

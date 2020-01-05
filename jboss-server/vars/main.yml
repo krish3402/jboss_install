@@ -1,0 +1,13 @@
+---
+JBOSS_HOME: /root/jboss-eap-7.2
+NEXUS: http://3.82.215.163:8080/nexus-latest/service/local/repositories/releases/content
+ARTIFACTORTY: com/rns/app
+NODE1: webapp
+NODE2: webapp1
+NODE3: webapp2
+NODE4: webapp3
+NODE5: webapp4
+NODE6: webapp5
+NODE7: webapp6
+VERSION: 1.9
+# vars file for jboss-server

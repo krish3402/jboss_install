@@ -1,0 +1,11 @@
+---
+
+- name: Include credential file
+  include_vars: main.yml
+- import_tasks: stopservers.yml
+- import_tasks: install.yml
+- import_tasks: instance.yml
+- import_tasks: deployment.yml
+- import_tasks: backup.yml
+- import_tasks: startsevers.yml
+# tasks file for jboss-server
